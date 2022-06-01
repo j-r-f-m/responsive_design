@@ -1,0 +1,52 @@
+/* 
+Be aware of collapsing margins
+Block elements: Block level elements will create a new line of content, stacking
+on top of each other by default (e.g. p, h1, ul, div).
+Inline elements: Inline elements stay within the flow of what's around them 
+(e.g. links, strong).
+ - you can only nest other inline elements in them (such as putting a link 
+ inside a strong element).
+ - They will only respect margin, padding, and bordes which are placed on the
+ left or the right side, and not the top and bottom.
+*/
+
+
+.card {
+    
+    background: #000;
+    color: white;
+    width: 560px;
+    margin: 0 auto;
+    padding: 45px;
+}
+
+h1, p {
+    /* set margin top to zero. the margin gets added to the padding of the parent element (.card). */
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+p {
+    /* if no margin is set the margin of the element will be equal to the font-size.*/
+    font-size: 18px;
+}
+
+
+
+.links {
+    margin-top: 40px;
+    margin-bottom: 0;
+}
+
+strong {
+    color: white;
+    
+
+}
+
+.accent-color {
+    color: yellow;
+}
