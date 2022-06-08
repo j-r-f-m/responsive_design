@@ -1,5 +1,6 @@
 /* Starting from beginning of "02_starting_to_think_responsiveley" */
 
+/* general */
 body {
     margin: 0;
     font-size: 18px;
@@ -11,6 +12,15 @@ h1,
 h2,
 strong {
     font-weight: 900;
+}
+
+img {
+    /* 
+    Using precentages
+    the image needs to have 100% of the parent to be as big as the parent 
+    only set the height or width of an image to not distort the image
+    */
+    width: 100%;
 }
 
 /* Typography */
@@ -75,7 +85,9 @@ section {
 }
 
 .container {
-    width: 620px;
+    width: 90%;
+    /* give maximum size */
+    max-width: 620px;
     margin: 0 auto;
     border: 2px solid magenta;
 }
