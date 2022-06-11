@@ -1,0 +1,119 @@
+/* SOLUTION */
+
+/* GENERAL */
+
+body {
+    /*set main font-size  */
+    font-size: 1.125rem;
+    color: #707070;
+    /* overworte default setting */
+    margin: 0;
+    
+
+}
+
+/* from a minimum width of 400px and bigger */
+/* order of media querries is important */
+/* @media (min-width: 600px) {
+    
+    body {
+        background: purple;
+    }
+}
+
+@media (min-width: 650px) {
+    body {
+        background: orange;
+    }
+} */
+
+/* TYPOGRAPHY */
+
+h1 {
+    font-size: 3rem;
+    color: #212614;
+    text-align: center;
+}
+
+span {  
+    color: #b7832f;
+}
+
+
+h2 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-top: 0;
+}
+
+/* LAYOUT */
+
+img {
+    /* you can also use width:100%  */
+    max-width: 100%;
+}
+
+.container {
+    /*  90% of the container*/
+    width: 95%;
+    /* set max width of layout */
+    max-width: 980px;
+    /* center the container */
+    margin: 0 auto;
+}
+
+
+
+.columns {
+    /* flex is only used on the columns */
+    display: flex;
+    margin: 1em 0;
+    justify-content: space-between;
+}
+
+/* media querries always come after the default setting */
+
+/* from small until that maximum size */
+@media (max-width: 600px) {
+    /* change the direction of flex-direction for small scr */
+    .columns {
+        flex-direction: column;
+
+    }
+}
+
+
+
+
+/* set the size of a column 
+   the precentages do not add up to 100%
+   we left space so space between creates a bit of space */
+
+.col-1 {
+    width: 20%;
+}
+
+.col-2 {
+    width: 45%;
+}
+
+.col-3 {
+    width: 70%;    
+}
+
+
+@media (max-width: 600px) {
+
+    .col-1, .col-2, .col-3 {
+        width: 100%;
+    }
+}
+
+.col-bg {
+    /* set background color on paragraphs */
+    background: #212614;
+    color: #fff;
+    padding: 1em;
+}

@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.125 rem;
+}
+
+.right1, .right2 {
+    background-color: #312614;
+}
+
+/* typography */
+
+span {
+    color: #b7832f;
+}
+
+
+/* Layout */
+
+.container {
+    
+    max-width: 980px;
+    margin:0 auto;
+}
+
+.columns {
+    display: flex;
+    color: #707070;
+    padding:2em 0 0 0;
+    gap: 10px;
+}
+
+.col {
+    flex-grow: 1;
+}
+
+.right2 {
+    max-with: 302.66;
+}
+
+img {
+    /* match width of parent */
+    max-width: 100%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin: 0;
+    padding: 0.5em;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
