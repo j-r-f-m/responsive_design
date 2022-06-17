@@ -1,30 +1,140 @@
-/*  Fonts
-    -----
-    font-family: 'Lora', serif;
-    font-family: 'Ubuntu', sans-serif;
+/*  GENERAL ACTION PLAN
+
+    1. typography
+    2. big layout 
+    3. detail layout
+
+
+    GENERAL NOTES
+    - vermeide wiederholungen in der definition (ausklammern)
+    - default root font size of html is 16px, rem unit relates to this size
+    - always use hover and focus together
+    - by default any block level element has 100% width
  */
- body {
+
+
+
+
+
+ /* Structure
+    components: 
+        1. feature article
+        2. recent article
+        3. widget component
+        */
+
+/* =============== 
+   GENERAL
+   =============== */
+
+body {     
+     /* remove dafault margin from body */
     margin: 0;
     font-family: 'Ubuntu', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 300;
 }
+
+img {
+    width: 100%;
+    /* default, use always */
+    /* display: block; - gets rid of a little space under the image,  */
+    display: block;
+}
+
+.image-full {
+    /* crop an image - giving an image an height and a width will result in an 
+       distorted image. To avoid this we use object-fit: cover. The image is
+       cropped in order to avoid distortion */
+    max-height: 300px;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 2em;
+}
+
 
 /* ================
    Typography 
    ================ */
 
-h1 {
+h1, 
+h2,
+h3 {
     font-family: 'Lora', serif;
     font-weight: 400;
     color: #143774;
+    margin-top: 0;
+}
+
+h1 {
+    
     font-size: 2rem;
     margin: 0;
 }
 
+h3 {
+    color: #1792d2;
+}
+
+a {
+    color: #1792d2;
+}
+
+a:hover,
+a:focus {
+    color: #143774;
+}
+
+strong {
+    font-weight: 700;
+}
+
+/* h1 subtitle */
 .subtitle {
     font-weight: 700;
     color: #1792d2;
     font-size: .75rem;
     margin: 0;
+}
+
+.article-title {
+    font-size: 1.5rem;
+}
+
+.article-read-more, 
+.article-info {
+    font-size: .875rem;
+}
+
+.article-read-more {
+    color: #1792d2;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.article-read-more:hover,
+.article-read-more:focus {
+    color: #143774;
+    text-decoration: underline;
+}
+
+.article-info {
+    margin: 2em 0;
+}
+
+.widget-title,
+.widget-recent-post-title {
+    font-size: 1em;
+}
+
+.widget-title {
+    font-size: 1rem;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+}
+
+.widget-recent-post-title {
+    color: #143774;
 }
 
 /* ================
@@ -34,36 +144,49 @@ h1 {
 .container {
     width: 90%;
     max-width: 900px;
-    border: 1px solid magenta;
+    /* border: 1px solid magenta; */
     margin: 0 auto;
     
 }
 
-.container-nav {
-    /* modifyer class */
+.container-flex {
+    /* modifyer class - used for flex */
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
-
-
 
 header {
 
     background:  #f8f8f8;
     padding: 2em 0;
+    text-align: center;
+    margin-bottom: 3em;
 }
 
-/* from small until that maximum size */
-@media (max-width: 675px) {
-    .container-nav {
-        flex-direction: column;
-        
+footer {
+    background:  #143774;
+    color: white;
+    text-align: center;
+    padding: 3em 0;
+
+}
+
+/* big screen */
+@media (min-width: 675px) {
+    .container-flex {
+        flex-direction: row;
+    }
+    /* control width of the two content columns */
+    main {
+        width: 70%;
     }
 
-    header {
-        /* center all elements */
-        text-align: center;
-
+    aside {
+        width: 25%;
+        min-width: 200px;
+        /* prevent two columns from colliding */
+        margin-left: 1em;
     }
 }
 
@@ -78,10 +201,7 @@ nav ul {
     justify-content: center;
 }
 
-
-
 nav li {
-
 /* margin to seperate the links */
     margin-left: 2em;
 }
@@ -107,15 +227,104 @@ nav a:focus {
     color: #707070;
 }
 
+/* small screen - from 0px up to 675px */
 @media  (max-width: 675px) {
     nav ul {
         flex-direction: column;
         
     }
 
-
     nav li {
         margin: .5em 0;
     }
 
+}
+
+/* articles */
+
+.article-featured {
+    /* creating the underline */
+    border-bottom: #707070 1px solid;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+}
+
+
+.article-recent {
+    /* layout for recent-articles */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+
+}
+
+/* change order of html */
+.article-recent-main {
+    /* set order of elements with the children */
+    order: 2;
+}           
+
+.article-recent-secondary {
+    order: 1;
+}
+
+/* big screen - change flex of articles */
+@media (min-width: 675px) {
+    .article-recent {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .article-recent-main {
+        width: 68%;
+    }
+
+    .article-recent-secondary {
+        width: 30%;
+    }
+
+    .article-featured {
+        /* layout for recent-articles */
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2em;
+    }
+
+    /* change order of html */
+    .article-image {
+        order: -2;
+        width: 100%;
+        /* cropping images */
+        min-height: 250px;
+        object-fit: cover;  
+    }
+ 
+    .article-info {
+        order: -1;
+    }
+}
+
+.sidebar-widget {   
+    /* set borders with px */
+    border: 20px solid #efefef;
+    margin-bottom: 2em;
+    padding: 1em;
+}
+
+.widget-recent-post {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #707070;
+    margin-bottom: 1em;
+}
+
+/* using a pseudo class to select the "last child" of the parent class 
+   sidebar-widget*/
+.widget-recent-post:last-child {
+    border: 0;
+    margin: 0;
+}
+
+.widget-image {
+    order: -1;
 }
